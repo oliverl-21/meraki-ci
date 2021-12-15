@@ -28,5 +28,6 @@ jobs:
         
     - shell: bash
       env:
-        auth: ${{ secrets.MERAKIAPI }}
+        auth_key: ${{ secrets.MERAKIAPI }}
+        org_name: ${{ secrets.ORG }}
       run: sh ./scripts/entrypoint.sh
