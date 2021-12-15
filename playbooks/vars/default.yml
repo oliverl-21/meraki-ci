@@ -9,7 +9,6 @@ allowurl:
 
 blockurl:
   - "bing.com"
-  - "bechtle.com"
 
 blockcat:
   - "Sex Education"
