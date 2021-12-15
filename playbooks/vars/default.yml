@@ -1,0 +1,21 @@
+---
+# defaults file for meraki
+url_lists_enabled: true
+content_categories_enabled: true
+
+allowurl:
+  - "heise.de"
+  - "golem.de"
+
+blockurl:
+  - "bing.com"
+  - "bechtle.com"
+
+blockcat:
+  - "Sex Education"
+  - "SPAM URLs"
+  - "Confirmed SPAM Sources"
+  - "Bot Nets"
+  - "Spyware and Adware"
+  - "Malware Sites"
+  - "Keyloggers and Monitoring"
