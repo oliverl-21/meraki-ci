@@ -16,10 +16,16 @@
       state: query
     register: network
 
-  - name: url lists
-    import_tasks: mx_url_lists.yml
-    when: url_lists_enabled
-
   - name: set content category
-    import_tasks: mx_content_category.yml
-    when: content_categories_enabled
+    cisco.meraki.meraki_mx_content_filtering:
+      auth_key: '{{ auth_key }}'
+      org_name: '{{ org_name }}'
+      net_name: '{{ item.name }}'
+      state: present
+      blocked_categories: "{{ blockcat }}"
+      blocked_urls: "{{ blockurl }}"
+      allowed_urls: "{{ allowurl }}"
+    loop: "{{ network.data }}"
+    when: "'appliance' in item.product_types"
+    loop_control:
+      label: "{{ item.name }}"
