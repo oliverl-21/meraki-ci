@@ -3,6 +3,8 @@
   vars:
     auth_key: "{{ auth_key }}"
     org_name: "{{ org_name }}"
+  vars_files:
+    - vars/default.yml
   
   tasks:  
   - name: get Network ID
