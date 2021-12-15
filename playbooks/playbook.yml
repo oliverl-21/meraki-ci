@@ -1,5 +1,5 @@
 - name: meraki deployment
-  hosts: localhost
+  hosts: 127.0.0.1
   connection: local
   gather_facts: no
   vars:
@@ -15,6 +15,7 @@
       org_name: "{{ org_name }}"
       state: query
     register: network
+    delegate_to: localhost
 
   - name: set content category
     cisco.meraki.meraki_mx_content_filtering:
@@ -29,3 +30,4 @@
     when: item.product_types|lower is search("appliance")
     loop_control:
       label: "{{ item.name }}"
+    delegate_to: localhost
