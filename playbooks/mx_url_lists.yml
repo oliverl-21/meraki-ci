@@ -1,0 +1,24 @@
+---
+- name: set allowed url
+  cisco.meraki.meraki_mx_content_filtering:
+    auth_key: '{{ auth_key }}'
+    org_name: '{{ org_name }}'
+    net_name: '{{ item.name }}'
+    state: present
+    allowed_urls: "{{ allowurl }}"
+  loop: "{{ network.data }}"
+  when: "'appliance' in item.product_types"
+  loop_control:
+    label: "{{ item.name }}"
+
+- name: set blocked url
+  cisco.meraki.meraki_mx_content_filtering:
+    auth_key: '{{ auth_key }}'
+    org_name: '{{ org_name }}'
+    net_name: '{{ item.name }}'
+    state: present
+    blocked_urls: "{{ blockurl }}"
+  loop: "{{ network.data }}"
+  when: "'appliance' in item.product_types"
+  loop_control:
+    label: "{{ item.name }}"
