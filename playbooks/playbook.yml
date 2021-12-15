@@ -26,6 +26,6 @@
       blocked_urls: "{{ blockurl }}"
       allowed_urls: "{{ allowurl }}"
     loop: "{{ network.data }}"
-    when: "'appliance' in item.product_types"
+    when: item.product_types|lower is search("appliance")
     loop_control:
       label: "{{ item.name }}"
