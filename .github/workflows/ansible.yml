@@ -10,7 +10,9 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        timeout-minutes: 1
       - name: run ansible container
+        timeout-minutes: 3
         uses: docker://cytopia/ansible:latest
         with:
           args: ansible-playbook playbooks/playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
