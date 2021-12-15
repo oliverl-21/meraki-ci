@@ -1,33 +1,32 @@
-name: CICD  # feel free to pick your own name
+---
 
-on:
-  push:
-    branches: 
-      - master
-    paths:
-      - 'playbooks/vars/**'
+name: Release
+'on':
+  - push
+
+defaults:
+  run:
+    working-directory: 'ansible'
 
 jobs:
-  lint:
 
+  ansible:
+    name: ansible
     runs-on: ubuntu-latest
-
     steps:
-    # Important: This sets up your GITHUB_WORKSPACE environment variable
-    - uses: actions/checkout@v2
-     
-    - name: Lint Ansible Playbook
-      # replace "master" with any valid ref
-      uses: ansible/ansible-lint-action@master
-      with:
-        targets: |
-           playbooks/meraki.yml
-        override-deps: |
-          ansible
-          ansible-lint
-        
-    - shell: bash
-      env:
-        auth_key: ${{ secrets.MERAKIAPI }}
-        org_name: ${{ secrets.ORG }}
-      run: sh ./scripts/entrypoint.sh
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: 'ansible'
+
+
+      - name: Set up Python 3.
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install Ansible.
+        run: pip3 install ansible-base
+
+      - name: ansible-run
+        run: ansible-playbook playbooks/playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}
