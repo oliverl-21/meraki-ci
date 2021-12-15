@@ -1,17 +1,17 @@
 ---
 
-name: Release
+name: ansible
 'on':
   - push
 
 jobs:
-
   ansible:
     runs-on: ubuntu-latest
-    container:
-      image: cytopia/ansible:latest
-      volumes:
-        - ./playbooks:/data
     steps:
-      - name: start playbook
-        run: ansible-playbook playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: run ansible container
+        uses: docker://cytopia/ansible:latest
+        with:
+          args: ansible-playbook playbooks/playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
+
