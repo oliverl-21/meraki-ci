@@ -6,27 +6,20 @@ name: Release
 
 defaults:
   run:
-    working-directory: 'ansible'
+    working-directory: 'ansible-dir'
 
 jobs:
 
   ansible:
-    name: ansible
     runs-on: ubuntu-latest
-    steps:
-      - name: Check out the codebase.
-        uses: actions/checkout@v2
-        with:
-          path: 'ansible'
-
-
-      - name: Set up Python 3.
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Install Ansible.
-        run: pip3 install ansible
-
-      - name: ansible-run
-        run: ansible-playbook playbooks/playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
+    container:
+      image: cytopia/ansible:latest
+      volumes:
+        - $(pwd):/data
+      steps:
+        - name: Check out the codebase.
+          uses: actions/checkout@v2
+          with:
+            path: 'ansible'
+        - name: start playbook
+          run: ansible-playbook playbooks/playbook.yml --extra-vars --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
