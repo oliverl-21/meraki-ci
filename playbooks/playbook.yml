@@ -1,5 +1,6 @@
 - name: meraki deployment
   hosts: localhost
+  gather_facts: no
   vars:
     auth_key: "{{ auth_key }}"
     org_name: "{{ org_name }}"
