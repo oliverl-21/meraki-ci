@@ -14,4 +14,4 @@ jobs:
         - playbooks:/data
     steps:
       - name: start playbook
-        run: ansible-playbook playbook.yml --extra-vars --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
+        run: ansible-playbook playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
