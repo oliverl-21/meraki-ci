@@ -3,7 +3,8 @@
   vars:
     auth_key: "{{ auth_key }}"
     org_name: "{{ org_name }}"
-    
+  
+  tasks:  
   - name: get Network ID
     cisco.meraki.meraki_network:
       auth_key: "{{ auth_key }}"
