@@ -9,6 +9,7 @@ allowurl:
 
 blockurl:
   - "bing.com"
+  - "eicar.org"
 
 blockcat:
   - "Sex Education"
