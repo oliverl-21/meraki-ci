@@ -13,5 +13,5 @@ jobs:
       - name: run ansible container
         uses: docker://cytopia/ansible:latest
         with:
-          args: ansible-playbook playbooks/playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
+          args: ansible-playbook playbooks/playbook.yml --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}" -vvv
 
