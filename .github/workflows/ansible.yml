@@ -4,10 +4,6 @@ name: Release
 'on':
   - push
 
-defaults:
-  run:
-    working-directory: 'ansible-dir'
-
 jobs:
 
   ansible:
@@ -18,4 +14,4 @@ jobs:
         - playbooks:/data
     steps:
       - name: start playbook
-        run: ansible-playbook playbooks/playbook.yml --extra-vars --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
+        run: ansible-playbook playbook.yml --extra-vars --extra-vars "auth_key=${{ secrets.MERAKIAPI }} org_name=${{ secrets.ORG }}"
