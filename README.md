@@ -7,7 +7,7 @@ runs ansible with github actions on push to loop over an Meraki ORG to set allow
 ## Setup
 Create 2 Repo Secrets
 
-MERAKIAPI which equals to your API KEY
-ORG which is your Meraki ORG Name
+- MERAKIAPI which equals to your API KEY
+- ORG which is your Meraki ORG Name
 
 Edit playbooks/vars/default.yml to your need and commit the change.
