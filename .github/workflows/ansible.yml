@@ -15,7 +15,7 @@ jobs:
     container:
       image: cytopia/ansible:latest
       volumes:
-        - $(pwd):/data
+        - ./:/data
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
