@@ -11,6 +11,7 @@ allowurl:
 blockurl:
   - "bing.com"
   - "eicar.org"
+  - 'internetbadguys.com'
 
 blockcat:
   - "Sex Education"
