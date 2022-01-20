@@ -26,7 +26,7 @@
       blocked_urls: "{{ blockurl }}"
       allowed_urls: "{{ allowurl }}"
     loop: "{{ network.data }}"
-    when: item.product_types|lower is search("appliance")
+    when: item.product_types|lower is search("appliance") and item.config_template_id is undefined
     loop_control:
       label: "{{ item.name }}"
     delegate_to: localhost
