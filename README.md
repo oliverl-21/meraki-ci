@@ -10,4 +10,4 @@ Create 2 Repo Secrets
 - MERAKIAPI which equals to your API KEY
 - ORG which is your Meraki ORG Name
 
-Edit playbooks/vars/default.yml to your need and commit the change.
+Edit ```playbooks/vars/default.yml``` to your need and commit the change.
