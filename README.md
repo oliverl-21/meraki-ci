@@ -1,4 +1,4 @@
-![Release](https://github.com/oliverl-21/meraki-ci/actions/workflows/ansible.yml/badge.svg)
+![Release](https://github.com/oliverl-21/meraki-ci/actions/workflows/ansible.yml/badge.svg?event=push)
 
 # meraki github cicd test
 
