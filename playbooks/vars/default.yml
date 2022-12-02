@@ -7,6 +7,7 @@ allowurl:
   - "heise.de"
   - "golem.de"
   - "example.com"
+  - "adac.de"
 
 blockurl:
   - "bing.com"
