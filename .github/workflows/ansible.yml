@@ -1,8 +1,10 @@
 ---
 
 name: ansible
-'on':
-  - push
+on:
+  push:
+    paths:
+      - '!.github'
 
 jobs:
   ansible:
