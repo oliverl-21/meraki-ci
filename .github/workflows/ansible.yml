@@ -3,8 +3,8 @@
 name: ansible
 on:
   push:
-    paths:
-      - '!.github'
+    paths-ignore:
+      - '.github'
 
 jobs:
   ansible:
